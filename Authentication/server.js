@@ -16,6 +16,11 @@ app.use(cookieParser());
 app.use("/api/users", userRoutes);
 app.use("/api/home", homeRoutes);
 
+// 👉 ye naya route add karo
+app.get("/", (req, res) => {
+  res.send("Server is working on topp 😎");
+});
+
 app.listen(3000, () => {
   console.log("Server is running on port 3000");
 });
