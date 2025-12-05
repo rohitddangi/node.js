@@ -14,7 +14,10 @@ const App = () => {
 
     let res = await axios.post(
       "http://localhost:3000/api/users/register",
-      formData
+      formData,
+      {
+        withCredentials: true,
+      }
     );
 
     if (res) {
