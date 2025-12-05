@@ -104,7 +104,7 @@ const logoutUserController = async (req, res) => {
 
     if (!user_id)
       return res.status(404).json({
-        message: "User if not found",
+        message: "User not found",
       });
 
     let user = await UserModel.findById(user_id);
@@ -117,7 +117,7 @@ const logoutUserController = async (req, res) => {
     res.clearCookie("token");
 
     return res.status(200).json({
-      message: "USer logged out",
+      message: "User logged out",
       user: user,
     });
   } catch (error) {
@@ -132,5 +132,5 @@ const logoutUserController = async (req, res) => {
 module.exports = {
   registerUserController,
   loginUserController,
-  logoutUserController
+  logoutUserController,
 };

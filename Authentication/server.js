@@ -1,5 +1,6 @@
 require("dotenv").config();
 const express = require("express");
+const cors = require("cors");
 const connectDB = require("./config/db");
 const userRoutes = require("./routes/user.routes");
 const homeRoutes = require("./routes/home.routes");
@@ -11,6 +12,14 @@ const app = express();
 connectDB();
 
 app.use(express.json());
+
+
+// this is required for cors policy
+app.use(
+  cors({
+    origin: "http://localhost:5173",
+  })
+);
 app.use(cookieParser());
 
 app.use("/api/users", userRoutes);
