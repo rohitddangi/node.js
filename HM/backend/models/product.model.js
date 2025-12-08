@@ -26,11 +26,13 @@ const productSchema = new mongoose.Schema(
       enum: ["MENS", "WOMENS", "KIDS"],
       default: "KIDS",
     },
-    sizes: {
-      type: String,
-      enum: ["S", "XS", "M", "XL", "XXL", "L"],
-      default: "L",
-    },
+    sizes: [
+      {
+        type: String,
+        enum: ["S", "XS", "M", "XL", "XXL", "L"],
+        default: "L",
+      },
+    ],
     colors: [
       {
         type: String,
@@ -46,6 +48,7 @@ const productSchema = new mongoose.Schema(
     user_id: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "user",
+      required: true,
     },
   },
   {
